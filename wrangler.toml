@@ -1,20 +1,48 @@
+Here’s a **ready-to-commit `wrangler.toml`** tailored for your Astro project **cyberteckmaster** with placeholders you must replace with your actual Cloudflare info:
+
+```toml
 name = "cyberteckmaster"
 type = "javascript"
-compatibility_date = "2024-05-01"
-account_id = "your-cloudflare-account-id"
+account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"    # Replace with your Cloudflare Account ID
 workers_dev = false
+compatibility_date = "2025-05-28"
 
+# Routes to bind your Worker to your domain and zone
 routes = [
-  { pattern = "cyberteckmaster.com/*", zone_id = "your-zone-id" }
+  { pattern = "cyberteckmaster.com/*", zone_id = "YOUR_ZONE_ID" }  # Replace with your Zone ID
 ]
 
 [site]
-bucket = "./dist"
+bucket = "./build"    # Astro build output directory
 
 [build]
 command = "npm run build"
 
-[env.production]
-zone_id = "your-zone-id"
-account_id = "your-cloudflare-account-id"
-route = "cyberteckmaster.com/*"
+[vars]               # Add any environment variables here (non-secret)
+SOME_API_URL = "https://api.example.com"
+ANALYTICS_KEY = "your-analytics-key"
+
+[kv_namespaces]      # Example KV binding — optional, remove if unused
+  [[kv_namespaces]]
+  binding = "MY_KV"                  # Binding name in your Worker code (env.MY_KV)
+  id = "YOUR_KV_NAMESPACE_ID"       # Replace with your KV Namespace ID
+```
+
+---
+
+### What to do next:
+
+* Replace all the placeholder values (`YOUR_CLOUDFLARE_ACCOUNT_ID`, `YOUR_ZONE_ID`, `YOUR_KV_NAMESPACE_ID`) with your real Cloudflare account and resource IDs.
+* Commit this file to the root of your Git repo (`git add wrangler.toml && git commit -m "Add Cloudflare Wrangler config"`)
+* Push to your production branch (likely `main`) — Cloudflare will pick up changes and run your build & deploy.
+* Use `wrangler secret put SECRET_NAME` to add any secrets you need (not stored in this file).
+
+---
+
+If you want me to help generate:
+
+* A minimal example Worker script to use with this config
+* Steps to connect your Git repo on Cloudflare dashboard
+* How to add secrets securely with Wrangler CLI
+
+Just let me know!
