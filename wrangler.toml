@@ -1,6 +1,4 @@
-Here’s a **ready-to-commit `wrangler.toml`** tailored for your Astro project **cyberteckmaster** with placeholders you must replace with your actual Cloudflare info:
 
-```toml
 name = "cyberteckmaster"
 type = "javascript"
 account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"    # Replace with your Cloudflare Account ID
