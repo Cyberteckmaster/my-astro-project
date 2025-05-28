@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact CyberTeckMaster">
+  <section class="py-20 text-center text-white">
+    <h1 class="text-3xl font-bold mb-4">Get in Touch</h1>
+    <form class="max-w-xl mx-auto">
+      <input type="text" placeholder="Name" class="block w-full p-3 mb-4" required />
+      <input type="email" placeholder="Email" class="block w-full p-3 mb-4" required />
+      <textarea placeholder="Message" class="block w-full p-3 mb-4" required></textarea>
+      <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg">Send</button>
+    </form>
+  </section>
+</BaseLayout>
